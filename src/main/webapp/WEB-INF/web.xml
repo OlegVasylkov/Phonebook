@@ -14,5 +14,13 @@
         <servlet-name>userServlet</servlet-name>
         <url-pattern>/users</url-pattern>
     </servlet-mapping>
+    <servlet>
+        <servlet-name>contactServlet</servlet-name>
+        <servlet-class>web.ContactServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>contactServlet</servlet-name>
+        <url-pattern>/contacts</url-pattern>
+    </servlet-mapping>
 
 </web-app>

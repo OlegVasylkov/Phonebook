@@ -3,9 +3,6 @@ package model;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * Created by filipenko_n on 14.07.2016.
- */
 public class User {
     private String login;
     private String password;
@@ -18,4 +15,19 @@ public class User {
         this.fullName = fullName;
     }
 
+    public String getLogin() {
+        return login;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public String getFullName() {
+        return fullName;
+    }
+
+    public List<Contact> getContacts() {
+        return contacts;
+    }
 }

@@ -10,12 +10,12 @@ import java.util.stream.Collectors;
  * Created by filipenko_n on 15.07.2016.
  */
 public class ContactUnit {
+    public static List<Contact> contacts = Arrays.asList(
+            new Contact("Stivenson", "Bob", "Y", "+380987654321"),
+            new Contact("Bond", "Mikle", "L", "+380999999223"),
+            new Contact("Maas", "Ryan", "Z", "+380931234567")
+    );
     public static void main(String[] args) {
-        List<Contact> contacts = Arrays.asList(
-                new Contact("Stivenson", "Bob", "Y", "+380987654321"),
-                new Contact("Bond", "Mikle", "L", "+380999999223"),
-                new Contact("Maas", "Ryan", "Z", "+380931234567")
-                );
         getFilteredByName(contacts, "on");
         getFilteredByPhone(contacts, "23");
     }

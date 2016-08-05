@@ -1,8 +1,5 @@
 package model;
 
-/**
- * Created by filipenko_n on 14.07.2016.
- */
 public class Contact {
     private String lastName;
     private String firstName;
@@ -18,15 +15,18 @@ public class Contact {
         this.firstName = firstName;
         this.middleName = middleName;
         this.mobilePhone = mobilePhone;
+        this.homePhone = null;
+        this.address = null;
+        this.email = null;
     }
 
-    public void setHomePhone(String homePhone) {
+    public Contact(String lastName, String firstName, String middleName, String mobilePhone, String homePhone, String address, String email) {
+        this.lastName = lastName;
+        this.firstName = firstName;
+        this.middleName = middleName;
+        this.mobilePhone = mobilePhone;
         this.homePhone = homePhone;
-    }
-    public void setAddress(String address) {
         this.address = address;
-    }
-    public void setEmail(String email) {
         this.email = email;
     }
 
