@@ -10,7 +10,7 @@
 
     <function>
         <name>matcher</name>
-        <function-class>Unit.ContactUnit</function-class>
+        <function-class>ua.vasylkov.phonebook.unit.ContactUnit</function-class>
         <function-signature>java.lang.String toString(java.lang.String)</function-signature>
     </function>
 </taglib>

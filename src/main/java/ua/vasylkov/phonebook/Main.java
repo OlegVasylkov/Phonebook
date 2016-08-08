@@ -1,3 +1,5 @@
+package ua.vasylkov.phonebook;
+
 /**
  * Created by OlegVasylkov on 14.07.2016.
  */

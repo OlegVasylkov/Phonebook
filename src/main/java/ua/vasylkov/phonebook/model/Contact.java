@@ -1,4 +1,4 @@
-package model;
+package ua.vasylkov.phonebook.model;
 
 public class Contact {
     private Integer id;

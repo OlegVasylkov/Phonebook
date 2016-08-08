@@ -25,7 +25,7 @@
         </tr>
         </thead>
         <c:forEach items="${contactList}" var="contact">
-            <jsp:useBean id="contact" scope="page" type="model.Contact"/>
+            <jsp:useBean id="contact" scope="page" type="ua.vasylkov.phonebook.model.Contact"/>
             <tr>
                 <td>${contact.firstName} ${contact.middleName} ${contact.lastName}</td>
                 <td>${fn:matcher(contact.mobilePhone)}</td>

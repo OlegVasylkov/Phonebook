@@ -1,11 +1,10 @@
-package web;
+package ua.vasylkov.phonebook.web;
 
-import Unit.ContactUnit;
-import model.Contact;
+import ua.vasylkov.phonebook.model.Contact;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import repository.ContactRepository;
-import repository.InMemoryContactRepositoryImpl;
+import ua.vasylkov.phonebook.repository.ContactRepository;
+import ua.vasylkov.phonebook.repository.InMemoryContactRepositoryImpl;
 
 import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;

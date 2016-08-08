@@ -1,4 +1,4 @@
-package web;
+package ua.vasylkov.phonebook.web;
 
 import org.slf4j.Logger;
 

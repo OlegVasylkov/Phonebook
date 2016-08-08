@@ -1,6 +1,6 @@
-package repository;
+package ua.vasylkov.phonebook.repository;
 
-import model.Contact;
+import ua.vasylkov.phonebook.model.Contact;
 
 import java.util.Collection;
 

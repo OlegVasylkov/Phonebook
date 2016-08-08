@@ -15,7 +15,7 @@
     <h2><a href="">Home</a></h2>
     <h3>Edit meal</h3>
     <hr>
-    <jsp:useBean id="contact" type="model.Contact" scope="request"/>
+    <jsp:useBean id="contact" type="ua.vasylkov.phonebook.model.Contact" scope="request"/>
     <form method="post" action="contacts">
         <input type="hidden" name="id" value="${contact.id}">
         <dl>Last name:<input minlength=4 type="text" value="${contact.lastName}" name="lastName" required></dl>

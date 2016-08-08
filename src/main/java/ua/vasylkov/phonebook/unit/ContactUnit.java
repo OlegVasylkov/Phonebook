@@ -1,6 +1,6 @@
-package Unit;
+package ua.vasylkov.phonebook.unit;
 
-import model.Contact;
+import ua.vasylkov.phonebook.model.Contact;
 
 import java.util.Arrays;
 import java.util.Collection;
