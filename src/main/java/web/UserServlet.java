@@ -11,7 +11,7 @@ import java.io.IOException;
 import static org.slf4j.LoggerFactory.getLogger;
 
 /**
- * Created by filipenko_n on 03.08.2016.
+ * Created by OlegVasylkov on 03.08.2016.
  */
 public class UserServlet extends HttpServlet {
     private static final Logger LOG = getLogger(UserServlet.class);

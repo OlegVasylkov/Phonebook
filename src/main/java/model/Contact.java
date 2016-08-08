@@ -1,6 +1,7 @@
 package model;
 
 public class Contact {
+    private Integer id;
     private String lastName;
     private String firstName;
     private String middleName;
@@ -10,17 +11,12 @@ public class Contact {
     private String address;
     private String email;
 
-    public Contact(String lastName, String firstName, String middleName, String mobilePhone) {
-        this.lastName = lastName;
-        this.firstName = firstName;
-        this.middleName = middleName;
-        this.mobilePhone = mobilePhone;
-        this.homePhone = null;
-        this.address = null;
-        this.email = null;
+    public Contact(String lastName, String firstName, String middleName, String mobilePhone, String homePhone, String address, String email) {
+        this(null, lastName, firstName, middleName, mobilePhone, homePhone, address, email);
     }
 
-    public Contact(String lastName, String firstName, String middleName, String mobilePhone, String homePhone, String address, String email) {
+    public Contact(Integer id, String lastName, String firstName, String middleName, String mobilePhone, String homePhone, String address, String email) {
+        this.id = id;
         this.lastName = lastName;
         this.firstName = firstName;
         this.middleName = middleName;
@@ -50,5 +46,28 @@ public class Contact {
     }
     public String getEmail() {
         return email;
+    }
+    public Integer getId() {
+        return id;
+    }
+    public void setId(Integer id){
+        this.id = id;
+    }
+    public boolean isNew() {
+        return id == null;
+    }
+
+    @Override
+    public String toString() {
+        return "Contact{" +
+                "id=" + id +
+                ", lastName='" + lastName + '\'' +
+                ", firstName='" + firstName + '\'' +
+                ", middleName='" + middleName + '\'' +
+                ", mobilePhone='" + mobilePhone + '\'' +
+                ", homePhone='" + homePhone + '\'' +
+                ", address='" + address + '\'' +
+                ", email='" + email + '\'' +
+                '}';
     }
 }
