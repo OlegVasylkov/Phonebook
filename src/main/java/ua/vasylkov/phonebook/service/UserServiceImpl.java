@@ -1,5 +1,8 @@
 package ua.vasylkov.phonebook.service;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
+import org.springframework.stereotype.Service;
 import ua.vasylkov.phonebook.model.User;
 import ua.vasylkov.phonebook.repository.UserRepository;
 import ua.vasylkov.phonebook.unit.exception.ExceptionUtil;
@@ -9,8 +12,15 @@ import java.util.List;
 /**
  * Created by OlegVasylkov on 08.08.2016.
  */
+
+@Service
 public class UserServiceImpl implements UserService {
+    @Autowired
     private UserRepository repository;
+
+    public void setRepository(UserRepository repository) {
+        this.repository = repository;
+    }
 
     @Override
     public User save(User user) {

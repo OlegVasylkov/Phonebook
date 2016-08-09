@@ -1,5 +1,6 @@
 package ua.vasylkov.phonebook.web.user;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import ua.vasylkov.phonebook.model.User;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -13,6 +14,7 @@ import java.util.List;
 public abstract class AbstractUserController {
     private static final Logger LOG = LoggerFactory.getLogger(AbstractUserController.class);
 
+    @Autowired
     private UserService userService;
 
     public List<User> getAll(){

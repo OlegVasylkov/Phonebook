@@ -2,6 +2,7 @@ package ua.vasylkov.phonebook.repository.mock;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.stereotype.Repository;
 import ua.vasylkov.phonebook.model.User;
 import ua.vasylkov.phonebook.repository.UserRepository;
 
@@ -11,6 +12,8 @@ import java.util.List;
 /**
  * Created by OlegVasylkov on 09.08.2016.
  */
+
+@Repository
 public class MockUserRepositoryImpl implements UserRepository{
     private static final Logger LOG = LoggerFactory.getLogger(MockUserRepositoryImpl.class);
 

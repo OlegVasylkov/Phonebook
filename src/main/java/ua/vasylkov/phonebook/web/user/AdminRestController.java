@@ -1,5 +1,6 @@
 package ua.vasylkov.phonebook.web.user;
 
+import org.springframework.stereotype.Controller;
 import ua.vasylkov.phonebook.model.User;
 
 import java.util.List;
@@ -7,6 +8,8 @@ import java.util.List;
 /**
  * Created by OlegVasylkov on 08.08.2016.
  */
+
+@Controller
 public class AdminRestController extends AbstractUserController {
     public List<User> getAll(){
         return super.getAll();

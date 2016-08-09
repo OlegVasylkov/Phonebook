@@ -1,5 +1,6 @@
 package ua.vasylkov.phonebook.repository.mock;
 
+import org.springframework.stereotype.Repository;
 import ua.vasylkov.phonebook.repository.ContactRepository;
 import ua.vasylkov.phonebook.unit.ContactUnit;
 import ua.vasylkov.phonebook.model.Contact;
@@ -12,6 +13,8 @@ import java.util.concurrent.atomic.AtomicInteger;
 /**
  * Created by OlegVasylkov on 05.08.2016.
  */
+
+@Repository
 public class InMemoryContactRepositoryImpl implements ContactRepository {
     private Map<Integer, Contact> repository = new ConcurrentHashMap<>();
     private AtomicInteger counter = new AtomicInteger(0);
