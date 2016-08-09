@@ -4,7 +4,7 @@ import ua.vasylkov.phonebook.model.Contact;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import ua.vasylkov.phonebook.repository.ContactRepository;
-import ua.vasylkov.phonebook.repository.InMemoryContactRepositoryImpl;
+import ua.vasylkov.phonebook.repository.mock.InMemoryContactRepositoryImpl;
 
 import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;

@@ -1,5 +1,6 @@
-package ua.vasylkov.phonebook.repository;
+package ua.vasylkov.phonebook.repository.mock;
 
+import ua.vasylkov.phonebook.repository.ContactRepository;
 import ua.vasylkov.phonebook.unit.ContactUnit;
 import ua.vasylkov.phonebook.model.Contact;
 
