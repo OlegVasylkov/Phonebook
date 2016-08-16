@@ -34,6 +34,20 @@ public class ContactUnit {
                 .collect(Collectors.toList());
     }
 
+    public static List<Contact> getFiltered(Collection<Contact> contacts, String name){
+        return contacts.stream()
+                .filter(c -> c.getFirstName()
+                        .concat(" ")
+                        .concat(c.getLastName())
+                        .concat(" ")
+                        .concat(c.getMiddleName())
+                        .concat(" ")
+                        .concat(c.getMobilePhone())
+                        .concat(" ")
+                        .concat(c.getHomePhone()).contains(name))
+                .collect(Collectors.toList());
+    }
+
     public static String toString(String phoneNumber) {
         return phoneNumber.substring(0, 3) + "(" + phoneNumber.substring(3, 6) + ")" + phoneNumber.substring(6);
     }

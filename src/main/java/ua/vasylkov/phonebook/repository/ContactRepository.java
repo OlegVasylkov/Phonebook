@@ -8,12 +8,13 @@ import java.util.Collection;
  * Created by OlegVasylkov on 05.08.2016.
  */
 public interface ContactRepository {
-    Contact save(Contact contact);
+    Contact save(Contact contact, int userId);
 
-    void delete(int id);
+    boolean delete(int id, int userId);
 
-    Contact get(int id);
+    Contact get(int id, int userId);
 
-    Collection<Contact> getAll();
+    Collection<Contact> getAll(int userId);
 
+    Collection<Contact> getFiltered(String name, int userId);
 }

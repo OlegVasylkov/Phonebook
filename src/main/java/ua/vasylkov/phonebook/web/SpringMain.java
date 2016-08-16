@@ -6,6 +6,7 @@ import ua.vasylkov.phonebook.model.Role;
 import ua.vasylkov.phonebook.model.User;
 import ua.vasylkov.phonebook.repository.UserRepository;
 import ua.vasylkov.phonebook.service.UserService;
+import ua.vasylkov.phonebook.web.contact.ContactRestController;
 import ua.vasylkov.phonebook.web.user.AdminRestController;
 
 import java.util.Arrays;
@@ -21,9 +22,10 @@ public class SpringMain {
             System.out.println(Arrays.toString(applicationContext.getBeanDefinitionNames()));
             UserRepository userRepository = applicationContext.getBean(UserRepository.class);
             AdminRestController adminRestController = applicationContext.getBean(AdminRestController.class);
-            User user = new User(1, "fullName", "login", "password", Role.ROLE_ADMIN);
-//            System.out.println(user);
             System.out.println(adminRestController.create(new User(1, "fullName", "login", "password", Role.ROLE_ADMIN)));
+
+            ContactRestController contactRestController = applicationContext.getBean(ContactRestController.class);
+            System.out.println(contactRestController.getFiltered("098"));
         }
     }
 }

@@ -10,6 +10,12 @@
 <section>
     <h2><a href="index.html">Home</a></h2>
     <h3>Contacts list</h3>
+    <form method="post" action="contacts?action=filter">
+        <dl>
+            <dt>Find</dt>
+            <dd><input type="text" name="search" value="${search}"></dd>
+        </dl>
+    </form>
     <hr>
     <a href="contacts?action=create">Add Contact</a>
     <table border="1" cellpadding="8" cellspacing="0">
@@ -29,7 +35,7 @@
             <tr>
                 <td>${contact.firstName} ${contact.middleName} ${contact.lastName}</td>
                 <td>${fn:matcher(contact.mobilePhone)}</td>
-                <td>${contact.homePhone}</td>
+                <td>${contact.homePhone != '' ? fn:matcher(contact.homePhone) : ''}</td>
                 <td>${contact.address}</td>
                 <td>${contact.email}</td>
                 <td><a href="contacts?action=update&id=${contact.id}">Update</a></td>

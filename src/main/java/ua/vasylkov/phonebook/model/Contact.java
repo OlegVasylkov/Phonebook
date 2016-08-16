@@ -1,7 +1,6 @@
 package ua.vasylkov.phonebook.model;
 
-public class Contact {
-    private Integer id;
+public class Contact extends BaseEntity{
     private String lastName;
     private String firstName;
     private String middleName;
@@ -16,7 +15,7 @@ public class Contact {
     }
 
     public Contact(Integer id, String lastName, String firstName, String middleName, String mobilePhone, String homePhone, String address, String email) {
-        this.id = id;
+        super(id);
         this.lastName = lastName;
         this.firstName = firstName;
         this.middleName = middleName;

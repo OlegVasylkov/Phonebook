@@ -7,9 +7,13 @@
 <body>
 <h2>Проект "<a href="https://github.com/OlegVasylkov" target="_blank">Phonebook by Oleg Vasylkov"</a></h2>
 <hr>
-<ul>
-    <li><a href="users">User List</a></li>
-    <li><a href="contacts">Contacts List</a></li>
-</ul>
+<form method="post" action="users">
+    <b>Contact list of</b>
+    <select name="userId">
+        <option value="1">Admin</option>
+        <option value="2">User</option>
+    </select>
+    <button type="submit">OK</button>
+</form>
 </body>
 </html>
