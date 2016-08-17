@@ -10,7 +10,8 @@ import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.stream.Collectors;
 
-import static ua.vasylkov.phonebook.repository.mock.InMemoryUserRepositoryImpl.USER_ID;
+import static ua.vasylkov.phonebook.UserTestData.USER_ID;
+
 
 /**
  * Created by OlegVasylkov on 05.08.2016.

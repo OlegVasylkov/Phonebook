@@ -1,13 +1,10 @@
 package ua.vasylkov.phonebook.web;
 
-import com.sun.deploy.net.HttpRequest;
 import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 import ua.vasylkov.phonebook.model.Contact;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import ua.vasylkov.phonebook.repository.ContactRepository;
-import ua.vasylkov.phonebook.repository.mock.InMemoryContactRepositoryImpl;
 import ua.vasylkov.phonebook.web.contact.ContactRestController;
 
 import javax.servlet.ServletConfig;

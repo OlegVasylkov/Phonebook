@@ -19,5 +19,5 @@ public interface UserRepository {
     // null if not found
     User getByLogin(String login);
 
-    List getAll();
+    List<User> getAll();
 }

@@ -1,9 +1,13 @@
 package ua.vasylkov.phonebook.repository.mock;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Repository;
 import ua.vasylkov.phonebook.model.User;
 import ua.vasylkov.phonebook.repository.UserRepository;
 
+import javax.annotation.PostConstruct;
+import javax.annotation.PreDestroy;
 import java.util.*;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.atomic.AtomicInteger;
@@ -15,13 +19,22 @@ import java.util.stream.Collectors;
 
 @Repository
 public class InMemoryUserRepositoryImpl implements UserRepository {
+    private static final Logger LOG = LoggerFactory.getLogger(InMemoryUserRepositoryImpl.class);
+
     private Map<Integer, User> repository = new ConcurrentHashMap<>();
     private AtomicInteger counter = new AtomicInteger(0);
 
     private static final Comparator<User> USER_COMPARATOR = Comparator.comparing(User::getName);
 
-    public static final int USER_ID = 1;
-    public static final int ADMIN_ID = 2;
+    @PostConstruct
+    public void postConstruct(){
+        LOG.info("++ test post construct");
+    }
+
+    @PreDestroy
+    public void preDestroy() {
+        LOG.info("++ test pre destroy");
+    }
 
     @Override
     public User save(User user) {
@@ -29,6 +42,7 @@ public class InMemoryUserRepositoryImpl implements UserRepository {
         if (user.isNew()) {
             user.setId(counter.incrementAndGet());
         }
+        repository.put(user.getId(), user);
         return user;
     }
 
