@@ -6,7 +6,7 @@
 </head>
 <body>
 <section>
-    <h2><a href="intex.html">Home</a></h2>
+    <h2><a href="index.html">Home</a></h2>
     <h3>${param.action == 'create' ? 'Create contact' : 'Edit contact'}</h3>
     <hr>
     <jsp:useBean id="contact" type="ua.vasylkov.phonebook.model.Contact" scope="request"/>
