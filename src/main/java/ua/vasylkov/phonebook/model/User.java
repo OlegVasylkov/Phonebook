@@ -4,7 +4,7 @@ import java.util.EnumSet;
 import java.util.Set;
 
 public class User extends NamedEntity {
-    private String login;
+    protected String login;
     protected String password;
     protected Set<Role> roles;
 

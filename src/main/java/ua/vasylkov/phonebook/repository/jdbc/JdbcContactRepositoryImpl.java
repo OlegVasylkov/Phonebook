@@ -9,6 +9,7 @@ import java.util.Collection;
  * Created by OlegVasylkov on 23.08.2016.
  */
 public class JdbcContactRepositoryImpl implements ContactRepository {
+    //TODO
     @Override
     public Contact save(Contact contact, int userId) {
         return null;
