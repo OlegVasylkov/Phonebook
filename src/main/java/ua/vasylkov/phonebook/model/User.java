@@ -10,11 +10,19 @@ public class User extends NamedEntity {
 
     public User(){}
 
+    public User(User u){
+        this(u.getId(), u.getName(), u.getLogin(), u.getPassword(), u.getRoles());
+    }
+
     public User(Integer id, String fullName, String login, String password, Role role, Role ... roles) {
-        super(id, fullName);
+        this(id, fullName, login, password, EnumSet.of(role, roles));
+    }
+
+    public User(Integer id, String name, String login, String password, Set<Role> roles) {
+        super(id, name);
         this.login = login;
         this.password = password;
-        this.roles = EnumSet.of(role, roles);
+        this.roles = roles;
     }
 
     public String getLogin() {
@@ -23,6 +31,10 @@ public class User extends NamedEntity {
 
     public String getPassword() {
         return password;
+    }
+
+    public Set<Role> getRoles() {
+        return roles;
     }
 
     @Override

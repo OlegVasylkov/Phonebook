@@ -18,6 +18,10 @@
         <property name="password" value="${database.password}"/>
     </bean>
 
+    <bean id="dbPopulator" class="ua.vasylkov.phonebook.unit.exception.DbPopulator">
+        <constructor-arg name="scriptLocation" value="classpath:db/populateDB.sql"/>
+    </bean>
+    
     <bean id="jdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate">
         <constructor-arg ref="dataSource"/>
     </bean>
