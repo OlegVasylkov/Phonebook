@@ -37,11 +37,25 @@ public class User extends NamedEntity {
         return roles;
     }
 
+    public void setLogin(String login) {
+        this.login = login;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public void setRoles(Set<Role> roles) {
+        this.roles = roles;
+    }
+
     @Override
     public String toString() {
         return "User{" +
-                "login='" + login + '\'' +
-                ", password='" + password + '\'' +
+                "id=" + id +
+                ", name=" + name +
+                ", login=" + login +
+                ", password=" + password +
                 ", roles=" + roles +
                 '}';
     }

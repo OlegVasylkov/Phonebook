@@ -1,6 +1,7 @@
 package ua.vasylkov.phonebook.repository.jdbc;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.support.DataAccessUtils;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
@@ -18,8 +19,8 @@ import java.util.List;
  */
 @Repository
 public class JdbcUserRepositoryImpl implements UserRepository {
-    private static final BeanPropertyRowMapper<User> ROW_MAPPER =
-            BeanPropertyRowMapper.newInstance(User.class);
+
+    private static final BeanPropertyRowMapper<User> ROW_MAPPER = BeanPropertyRowMapper.newInstance(User.class);
 
     @Autowired
     private JdbcTemplate jdbcTemplate;
@@ -48,8 +49,7 @@ public class JdbcUserRepositoryImpl implements UserRepository {
             user.setId(key.intValue());
         }else {
             namedParameterJdbcTemplate.update(
-                    "UPDATE users SET name=:name, login=:login, password=:password" +
-                            "WHERE id=:id", map);
+                    "UPDATE users SET name=:name, login=:login, password=:password WHERE id=:id", map);
         }
         return user;
     }
@@ -61,8 +61,8 @@ public class JdbcUserRepositoryImpl implements UserRepository {
 
     @Override
     public User get(int id) {
-        return jdbcTemplate.queryForObject("SELECT * FROM users " +
-                "WHERE id=?", ROW_MAPPER, id);
+        List<User> users = jdbcTemplate.query("SELECT * FROM users WHERE id=?", ROW_MAPPER, id);
+        return DataAccessUtils.singleResult(users);
     }
 
     @Override

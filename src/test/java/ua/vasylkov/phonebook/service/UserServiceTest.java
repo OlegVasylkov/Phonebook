@@ -1,12 +1,24 @@
 package ua.vasylkov.phonebook.service;
 
+import org.junit.Assert;
 import org.junit.Before;
+import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import ua.vasylkov.phonebook.UserTestData.TestUser;
-import ua.vasylkov.phonebook.unit.exception.DbPopulator;
+import ua.vasylkov.phonebook.model.Role;
+import ua.vasylkov.phonebook.model.User;
+import ua.vasylkov.phonebook.unit.DbPopulator;
+import ua.vasylkov.phonebook.unit.exception.NotFoundException;
+
+import java.util.Arrays;
+import java.util.Collection;
+import java.util.Collections;
+
+import static ua.vasylkov.phonebook.UserTestData.USER_MATCHER;
+import static ua.vasylkov.phonebook.UserTestData.*;
 
 /**
  * Created by OlegVasylkov on 23.08.2016.
@@ -27,7 +39,55 @@ public class UserServiceTest {
         dbPopulator.execute();
     }
 
+    @Test
+    public void testGet() throws Exception{
+        User user = userService.get(USER_ID);
+        USER_MATCHER.assertEquals(USER, user);
+    }
+
+    @Test
     public void testSave() throws Exception{
-        //TODO
+        TestUser tu = new TestUser(null, "asdfsd", "adsfasd", "adsfasdf", Collections.singleton(Role.ROLE_USER));
+        User created = userService.save(tu.asUser());
+        tu.setId(created.getId());
+        USER_MATCHER.assertCollectionEquals(Arrays.asList(ADMIN, tu, USER), userService.getAll());
+    }
+
+    @Test
+    public void testDuplicateLogin() throws Exception{
+        userService.save(new TestUser("dupicate", "userLogin", "asdfasf", Role.ROLE_USER).asUser());
+    }
+
+    @Test
+    public void testDelete() throws Exception{
+        userService.delete(USER_ID);
+        USER_MATCHER.assertCollectionEquals(Collections.singleton(ADMIN), userService.getAll());
+    }
+
+    @Test(expected = NotFoundException.class)
+    public void testNotFound() throws Exception{
+        userService.delete(1);
+    }
+
+    @Test(expected = NotFoundException.class)
+    public void testGetNotFound() throws Exception{
+        userService.get(1);
+    }
+
+    @Test
+    public void testGetByLogin() throws Exception{
+        User user = userService.getByLogin("admin");
+        USER_MATCHER.assertEquals(ADMIN, user);
+    }
+
+    @Test
+    public void testGetAll() throws Exception{
+        Collection<User> all = userService.getAll();
+        USER_MATCHER.assertCollectionEquals(Arrays.asList(ADMIN, USER), all);
+    }
+
+    @Test
+    public void testUpdate() throws Exception{
+
     }
 }

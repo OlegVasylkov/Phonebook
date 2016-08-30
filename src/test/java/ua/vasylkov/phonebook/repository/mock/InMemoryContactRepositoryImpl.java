@@ -53,7 +53,6 @@ public class InMemoryContactRepositoryImpl implements ContactRepository {
     @Override
     public Contact get(int id, int userId) {
         Map<Integer, Contact> contacts = repository.get(userId);
-        System.out.println(repository.get(userId).size());
         return contacts == null ? null : contacts.get(id);
     }
 
