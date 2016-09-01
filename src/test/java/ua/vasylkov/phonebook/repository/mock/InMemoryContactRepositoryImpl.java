@@ -67,8 +67,8 @@ public class InMemoryContactRepositoryImpl implements ContactRepository {
     }
 
     @Override
-    public Collection<Contact> getFiltered(String name, int userId) {
-        return ContactUnit.getFiltered(getAll(userId), name).stream()
+    public Collection<Contact> getFiltered(String search, int userId) {
+        return ContactUnit.getFiltered(getAll(userId), search).stream()
                 .sorted(CONTACT_COMPARATOR_BY_FIRST_NAME)
                 .collect(Collectors.toList());
     }

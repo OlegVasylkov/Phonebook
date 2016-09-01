@@ -16,5 +16,5 @@ public interface ContactRepository {
 
     Collection<Contact> getAll(int userId);
 
-    Collection<Contact> getFiltered(String name, int userId);
+    Collection<Contact> getFiltered(String search, int userId);
 }

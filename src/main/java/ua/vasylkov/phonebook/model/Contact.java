@@ -10,6 +10,8 @@ public class Contact extends BaseEntity{
     private String address;
     private String email;
 
+    public Contact(){}
+
     public Contact(String lastName, String firstName, String middleName, String mobilePhone, String homePhone, String address, String email) {
         this(null, lastName, firstName, middleName, mobilePhone, homePhone, address, email);
     }
@@ -54,6 +56,27 @@ public class Contact extends BaseEntity{
     }
     public boolean isNew() {
         return id == null;
+    }
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
+    public void setMiddleName(String middleName) {
+        this.middleName = middleName;
+    }
+    public void setMobilePhone(String mobilePhone) {
+        this.mobilePhone = mobilePhone;
+    }
+    public void setHomePhone(String homePhone) {
+        this.homePhone = homePhone;
+    }
+    public void setAddress(String address) {
+        this.address = address;
+    }
+    public void setEmail(String email) {
+        this.email = email;
     }
 
     @Override
