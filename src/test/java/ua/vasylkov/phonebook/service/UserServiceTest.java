@@ -1,6 +1,5 @@
 package ua.vasylkov.phonebook.service;
 
-import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -88,6 +87,9 @@ public class UserServiceTest {
 
     @Test
     public void testUpdate() throws Exception{
-
+        TestUser updated = new TestUser(USER);
+        updated.setName("UpdatedName");
+        userService.update(updated.asUser());
+        USER_MATCHER.assertEquals(updated, userService.get(USER_ID));
     }
 }
