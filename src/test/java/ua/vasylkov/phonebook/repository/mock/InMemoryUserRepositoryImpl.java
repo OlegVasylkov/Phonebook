@@ -3,6 +3,7 @@ package ua.vasylkov.phonebook.repository.mock;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Repository;
+import org.springframework.util.Assert;
 import ua.vasylkov.phonebook.model.User;
 import ua.vasylkov.phonebook.repository.UserRepository;
 
@@ -38,7 +39,7 @@ public class InMemoryUserRepositoryImpl implements UserRepository {
 
     @Override
     public User save(User user) {
-        Objects.requireNonNull(user);
+        Assert.notNull(user, "user must be not null");
         if (user.isNew()) {
             user.setId(counter.incrementAndGet());
         }
@@ -58,7 +59,7 @@ public class InMemoryUserRepositoryImpl implements UserRepository {
 
     @Override
     public User getByLogin(String login) {
-        Objects.requireNonNull(login);
+        Assert.notNull(login, "login must be not null");
         return repository.values().stream()
                 .filter(u -> u.getLogin().equals(login))
                 .findFirst()

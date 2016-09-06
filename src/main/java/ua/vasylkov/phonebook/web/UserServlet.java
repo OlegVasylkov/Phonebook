@@ -1,7 +1,7 @@
 package ua.vasylkov.phonebook.web;
 
 import org.slf4j.Logger;
-import ua.vasylkov.phonebook.LoggedUser;
+import ua.vasylkov.phonebook.AuthorizedUser;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -20,7 +20,7 @@ public class UserServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         int userId = Integer.parseInt(req.getParameter("userId"));
-        LoggedUser.setId(userId);
+        AuthorizedUser.setId(userId);
         resp.sendRedirect("contacts");
     }
 

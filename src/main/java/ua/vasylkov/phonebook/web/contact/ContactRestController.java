@@ -4,7 +4,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import ua.vasylkov.phonebook.LoggedUser;
+import ua.vasylkov.phonebook.AuthorizedUser;
 import ua.vasylkov.phonebook.model.Contact;
 import ua.vasylkov.phonebook.service.ContactService;
 
@@ -23,39 +23,39 @@ public class ContactRestController {
     private ContactService contactService;
 
     public Contact get(int id){
-        int userId = LoggedUser.getId();
+        int userId = AuthorizedUser.getId();
         LOG.info("get contact {} for user {}", id, userId);
         return contactService.get(id, userId);
     }
 
     public void delete(int id){
-        int userId = LoggedUser.getId();
+        int userId = AuthorizedUser.getId();
         LOG.info("delete contact {} for user {}", id, userId);
         contactService.delete(id, userId);
     }
 
     public List<Contact> getAll(){
-        int userId = LoggedUser.getId();
+        int userId = AuthorizedUser.getId();
         LOG.info("get all contacts for {}", userId);
         return contactService.getAll(userId).stream().collect(Collectors.toList());
     }
 
     public Contact create(Contact contact){
         contact.setId(null);
-        int userId = LoggedUser.getId();
+        int userId = AuthorizedUser.getId();
         LOG.info("create {] for user {}", contact, userId);
         return contactService.save(contact, userId);
     }
 
     public void update(Contact contact, int id){
         contact.setId(id);
-        int userId = LoggedUser.getId();
+        int userId = AuthorizedUser.getId();
         LOG.info("update {} for user {}", contact, userId);
         contactService.update(contact, userId);
     }
 
     public List<Contact> getFiltered(String search){
-        int userId = LoggedUser.getId();
+        int userId = AuthorizedUser.getId();
         LOG.info("filter contacts by {} for user {}", search, userId);
         return contactService.getFiltered(search, userId).stream().collect(Collectors.toList());
     }

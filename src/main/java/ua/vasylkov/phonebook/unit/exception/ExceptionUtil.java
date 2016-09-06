@@ -1,6 +1,8 @@
 package ua.vasylkov.phonebook.unit.exception;
 
 public class ExceptionUtil {
+    private ExceptionUtil(){}
+
     public static void checkNotFoundWithId(boolean found, int id) {
         checkNotFound(found, "id=" + id);
     }

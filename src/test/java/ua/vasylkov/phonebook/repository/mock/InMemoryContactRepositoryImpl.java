@@ -1,6 +1,7 @@
 package ua.vasylkov.phonebook.repository.mock;
 
 import org.springframework.stereotype.Repository;
+import org.springframework.util.Assert;
 import ua.vasylkov.phonebook.repository.ContactRepository;
 import ua.vasylkov.phonebook.unit.ContactUnit;
 import ua.vasylkov.phonebook.model.Contact;
@@ -31,7 +32,7 @@ public class InMemoryContactRepositoryImpl implements ContactRepository {
     @Override
     public Contact save(Contact contact, int userId) {
 
-        Objects.requireNonNull(contact);
+        Assert.notNull(contact, "contact must be not null");
         Integer contactId = contact.getId();
 
         if (contact.isNew()) {
