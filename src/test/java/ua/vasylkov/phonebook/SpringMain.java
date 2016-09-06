@@ -17,7 +17,7 @@ public class SpringMain {
     public static void main(String[] args) {
         try
                 (ConfigurableApplicationContext applicationContext =
-                         new ClassPathXmlApplicationContext("spring/spring-app.xml", "spring/spring-db.xml")) {
+                         new ClassPathXmlApplicationContext("spring/spring-app.xml", "spring/mock.xml")) {
             System.out.println(Arrays.toString(applicationContext.getBeanDefinitionNames()));
             UserRepository userRepository = applicationContext.getBean(UserRepository.class);
             AdminRestController adminRestController = applicationContext.getBean(AdminRestController.class);

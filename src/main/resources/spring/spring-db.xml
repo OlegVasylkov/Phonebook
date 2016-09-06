@@ -13,6 +13,8 @@
     <context:property-placeholder location="classpath:db/postgresql.properties"
                                   system-properties-mode="OVERRIDE"/>
 
+    <context:component-scan base-package="ua.vasylkov.**.repository.jdbc"/>
+
     <jdbc:initialize-database data-source="dataSource" enabled="${database.init}">
         <jdbc:script location="classpath:db/initDB.sql"/>
         <jdbc:script encoding="UTF-8" location="classpath:db/populateDB.sql"/>

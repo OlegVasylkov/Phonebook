@@ -22,7 +22,7 @@ import static ua.vasylkov.phonebook.UserTestData.USER_ID;
  * Created by OlegVasylkov on 17.08.2016.
  */
 
-@ContextConfiguration("classpath:spring/spring-app.xml")
+@ContextConfiguration({"classpath:spring/spring-app.xml", "classpath:spring/mock.xml"})
 @RunWith(SpringJUnit4ClassRunner.class)
 public class InMemoryAdminRestControllerSpringTest {
     @Autowired
