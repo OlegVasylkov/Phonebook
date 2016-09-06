@@ -1,15 +1,15 @@
 package ua.vasylkov.phonebook.service;
 
-import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
+import org.springframework.test.context.jdbc.Sql;
+import org.springframework.test.context.jdbc.SqlConfig;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import ua.vasylkov.phonebook.UserTestData.TestUser;
 import ua.vasylkov.phonebook.model.Role;
 import ua.vasylkov.phonebook.model.User;
-import ua.vasylkov.phonebook.unit.DbPopulator;
 import ua.vasylkov.phonebook.unit.exception.NotFoundException;
 
 import java.util.Arrays;
@@ -27,16 +27,10 @@ import static ua.vasylkov.phonebook.UserTestData.*;
         "classpath:spring/spring-db.xml"
 })
 @RunWith(SpringJUnit4ClassRunner.class)
+@Sql(scripts = "classpath:db/populateDB.sql", config = @SqlConfig(encoding = "UTF-8"))
 public class UserServiceTest {
     @Autowired
     protected UserService userService;
-    @Autowired
-    private DbPopulator dbPopulator;
-
-    @Before
-    public void setUp() throws Exception{
-        dbPopulator.execute();
-    }
 
     @Test
     public void testGet() throws Exception{
